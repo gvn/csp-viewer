@@ -5,8 +5,7 @@ module.exports = function (grunt) {
       server: {
         options: {
           port: 2700,
-          open: true,
-          keepalive: true
+          open: true
         }
       }
     },
@@ -30,14 +29,33 @@ module.exports = function (grunt) {
           config: '.jsbeautifyrc'
         }
       }
+    },
+    jade: {
+      production: {
+        options: {
+          pretty: true
+        },
+        files: {
+          'index.html': 'index.jade'
+        }
+      }
+    },
+    watch: {
+      index: {
+        files: ['index.jade'],
+        tasks: ['jade:production']
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['connect']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('build', ['jade']);
 
   // Clean code before a commit
   grunt.registerTask('clean', ['jsbeautifier:modify', 'jshint']);
