@@ -1,0 +1,40 @@
+{
+  "name": "csp-viewer",
+  "version": "0.0.1",
+  "description": "CSP Violation Viewer",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gvn/csp-viewer.git"
+  },
+  "scripts": {
+    "test": "grunt validate"
+  },
+  "keywords": [
+    "csp",
+    "security",
+    "content security policy"
+  ],
+  "author": "Mozilla",
+  "contributors": [
+    {
+      "name": "Gavin Lazar Suntop",
+      "email": "gavin@gsuntop.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/gvn/csp-viewer/issues"
+  },
+  "homepage": "https://github.com/gvn/csp-viewer",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-jsbeautifier": "~0.2.6",
+    "grunt-contrib-connect": "~0.6.0"
+  },
+  "license": "http://www.mozilla.org/MPL/2.0/",
+  "engines": {
+    "node": ">=0.10"
+  }
+}

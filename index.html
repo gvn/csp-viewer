@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CSP Violations</title>
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+  <div ng-app ng-controller="ReportCtrl" class="container">
+    <h1>CSP Violations</h1>
+
+    <p>Total Violations: <strong>{{violations.length}}</strong></p>
+
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>URI</th>
+          <th>Violated Directive</th>
+          <th>Original Policy</th>
+          <th>Blocked URI</th>
+          <th>Source File</th>
+          <th>Line Number</th>
+          <th>Status Code</th>
+          <th>User Agent</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="violation in violations">
+          <td>{{violation.documentURI}}</td>
+          <td>{{violation.violatedDirective}}</td>
+          <td>{{violation.originalPolicy}}</td>
+          <td>{{violation.blockedURI}}</td>
+          <td>{{violation.sourceFile}}</td>
+          <td>{{violation.lineNumber}}</td>
+          <td>{{violation.statusCode}}</td>
+          <td>{{violation.userAgent}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/js/report.js"></script>
+</body>
+</html>
