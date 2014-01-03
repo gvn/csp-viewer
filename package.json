@@ -8,7 +8,8 @@
     "url": "git://github.com/gvn/csp-viewer.git"
   },
   "scripts": {
-    "test": "grunt validate"
+    "test": "grunt validate",
+    "postinstall": "bower install"
   },
   "keywords": [
     "csp",

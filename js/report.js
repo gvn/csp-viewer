@@ -1,6 +1,4 @@
 function ReportCtrl($scope, $http) {
-
-  $scope.total = 3;
   $scope.violations = [];
 
   $http({
@@ -12,5 +10,4 @@ function ReportCtrl($scope, $http) {
   }).
   error(function (data, status, headers, config) {
   });
-
 }
