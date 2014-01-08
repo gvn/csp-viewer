@@ -1,5 +1,7 @@
 var app = angular.module('cspViewer', ['ngRoute']);
 
+// CONFIG ---------------------------------------------------------------------
+
 app.config(['$routeProvider',
   function ($routeProvider) {
     $routeProvider.when('/', {
@@ -7,12 +9,14 @@ app.config(['$routeProvider',
       controller: 'ReportCtrl'
     });
 
-    $routeProvider.when('/detail', {
+    $routeProvider.when('/detail/:violationID', {
       templateUrl: '/app/partials/detail.html',
       controller: 'DetailController' // TODO - new controller (?)
     });
   }
 ]);
+
+// SERVICES -------------------------------------------------------------------
 
 app.factory('cspLogger', function ($http) {
   return {
@@ -24,6 +28,8 @@ app.factory('cspLogger', function ($http) {
   }
 })
 
+// CONTROLLERS ----------------------------------------------------------------
+
 app.controller('ReportCtrl', function ($scope, cspLogger) {
   $scope.violations = [];
 
@@ -32,6 +38,6 @@ app.controller('ReportCtrl', function ($scope, cspLogger) {
   });
 });
 
-app.controller('DetailController', function ($scope, cspLogger) {
-  console.log('DetailController init');
+app.controller('DetailController', function ($scope, $routeParams) {
+  $scope.violationID = $routeParams.violationID;
 });
