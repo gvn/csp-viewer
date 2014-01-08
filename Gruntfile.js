@@ -44,7 +44,7 @@ module.exports = function (grunt) {
     },
     watch: {
       index: {
-        files: ['index.jade'],
+        files: ['app/partials/**/*.jade'],
         tasks: ['jade:production']
       }
     }

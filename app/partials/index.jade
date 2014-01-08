@@ -4,11 +4,11 @@ html(ng-app='cspViewer')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     title CSP Violations
     link(href='/bower_components/bootswatch/cyborg/bootstrap.min.css', rel='stylesheet', type='text/css', media='all')
-    link(href='css/report.css', rel='stylesheet', type='text/css')
+    link(href='/app/css/report.css', rel='stylesheet', type='text/css')
   body
-    .container(ng-controller='ReportCtrl')
+    .container
       ng-view
 
-    script(src='/bower_components/angular/angular.min.js')
-    script(src='/bower_components/angular-route/angular-route.min.js')
-    script(src='/js/report.js')
+    script(src='/bower_components/angular/angular.js')
+    script(src='/bower_components/angular-route/angular-route.js')
+    script(src='/app/js/app.js')
