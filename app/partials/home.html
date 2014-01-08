@@ -1,0 +1,42 @@
+
+<div class="row header">
+  <header class="col-md-9">
+    <h1>CSP Violations</h1>
+    <p><span class="label label-info">{{violations.length}}</span><span> Total Violations</span></p>
+  </header>
+  <form role="form" class="col-md-3">
+    <div class="form-group">
+      <label for="report-filter" class="sr-only">Filter</label>
+      <input id="report-filter" ng-model="reportFilter" placeholder="Filter" class="form-control"/>
+    </div>
+  </form>
+</div>
+<div ng-show="alertMessage" class="alert alert-danger">{{alertMessage}}</div>
+<div ng-show="violations" class="row">
+  <table class="table table-responsive col-md-12">
+    <thead>
+      <tr>
+        <th ng-click="rowOrder=&quot;documentURI&quot;">URI</th>
+        <th ng-click="rowOrder=&quot;violatedDirective&quot;">Violated Directive</th>
+        <th ng-click="rowOrder=&quot;originalPolicy&quot;">Original Policy</th>
+        <th ng-click="rowOrder=&quot;blockedURI&quot;">Blocked URI</th>
+        <th ng-click="rowOrder=&quot;sourceFile&quot;">Source File</th>
+        <th ng-click="rowOrder=&quot;lineNumber&quot;">Line Number</th>
+        <th ng-click="rowOrder=&quot;statusCode&quot;">Status Code</th>
+        <th ng-click="rowOrder=&quot;userAgent&quot;">User Agent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="violation in violations | filter:reportFilter | orderBy:rowOrder">
+        <td><a href="{{violation.documentURI}}" target="_blank">{{violation.documentURI}}</a></td>
+        <td>{{violation.violatedDirective}}</td>
+        <td class="long">{{violation.originalPolicy}}</td>
+        <td><a href="{{violation.blockedURI}}" target="_blank">{{violation.blockedURI}}</a></td>
+        <td>{{violation.sourceFile}}</td>
+        <td>{{violation.lineNumber}}</td>
+        <td>{{violation.statusCode}}</td>
+        <td class="long">{{violation.userAgent}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -35,9 +35,11 @@ module.exports = function (grunt) {
         options: {
           pretty: true
         },
-        files: {
-          'index.html': 'index.jade'
-        }
+        files: [{
+          expand: true,
+          src: 'app/partials/**/*.jade',
+          ext: '.html'
+        }]
       }
     },
     watch: {

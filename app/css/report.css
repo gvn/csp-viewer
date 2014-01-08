@@ -5,3 +5,7 @@ form {
 .long {
   font-size: 0.8em;
 }
+
+th {
+  cursor: pointer;
+}
