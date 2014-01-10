@@ -17,13 +17,13 @@ module.exports = function (grunt) {
     },
     jsbeautifier: {
       modify: {
-        src: ['*.js'],
+        src: ['Gruntfile.js', 'app/js/**/*.js'],
         options: {
           config: '.jsbeautifyrc'
         }
       },
       validate: {
-        src: ['*.js'],
+        src: ['Gruntfile.js', 'app/js/**/*.js'],
         options: {
           mode: 'VERIFY_ONLY',
           config: '.jsbeautifyrc'
