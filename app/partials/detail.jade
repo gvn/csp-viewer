@@ -1,4 +1,36 @@
 view(ng-controller='DetailController')
-  h2 Violation ID: {{ violationID }}
+  h2 Violation {{ violationID }}
 
-  a(href='#/') Home
+  //- TODO Can this be a repeater (iterate over properties on object?)
+  .list-group
+    .list-group-item
+      h4.list-group-item-heading URI
+      p.list-group-item-text
+        a(href='{{ violation.documentURI }}', target='_blank') {{ violation.documentURI }}
+    .list-group-item
+      h4.list-group-item-heading Violated Directive
+      p.list-group-item-text {{ violation.violatedDirective }}
+    .list-group-item
+      h4.list-group-item-heading Original Policy
+      p.list-group-item-text {{ violation.originalPolicy }}
+    .list-group-item
+      h4.list-group-item-heading Blocked URI
+      p.list-group-item-text
+        a(href='{{ violation.blockedURI }}', target='_blank') {{ violation.blockedURI }}
+    .list-group-item
+      h4.list-group-item-heading Source File
+      p.list-group-item-text {{ violation.sourceFile }}
+    .list-group-item
+      h4.list-group-item-heading Line Number
+      p.list-group-item-text {{ violation.lineNumber }}
+    .list-group-item
+      h4.list-group-item-heading Status
+      p.list-group-item-text {{ violation.statusCode }}
+    .list-group-item
+      h4.list-group-item-heading User Agent
+      p.list-group-item-text {{ violation.userAgent }}
+
+  ol.breadcrumb
+    li
+      a(href="#/") Home
+    li.active Violation {{ violationID }}

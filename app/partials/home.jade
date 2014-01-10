@@ -1,40 +1,29 @@
-view(ng-controller='ReportCtrl')
+view(ng-controller='ReportController')
   .row.header
     header.col-md-9
       h1 CSP Violations
-      p
-        span.label.label-info {{violations.length}}
-        span  Total Violations
     form.col-md-3(role='form')
       .form-group
         label.sr-only(for='report-filter') Filter
         input#report-filter.form-control(ng-model='reportFilter', placeholder='Filter')
-  .test {{ reportFilter }}
   .alert.alert-danger(ng-show='alertMessage') {{alertMessage}}
   .row(ng-show='violations')
-    table.table.table-responsive.col-md-12
+    table.table.table-responsive
       thead
         tr
           th(ng-click='rowOrder="documentURI"') URI
           th(ng-click='rowOrder="violatedDirective"') Violated Directive
-          //- th(ng-click='rowOrder="originalPolicy"') Original Policy
-          //- th(ng-click='rowOrder="blockedURI"') Blocked URI
-          //- th(ng-click='rowOrder="sourceFile"') Source File
-          //- th(ng-click='rowOrder="lineNumber"') Line Number
           th(ng-click='rowOrder="statusCode"') Status
-          //- th(ng-click='rowOrder="userAgent"') User Agent
           th Report
       tbody
         tr(ng-repeat='violation in violations | filter:reportFilter | orderBy:rowOrder')
           td
             a(href='{{violation.documentURI}}', target='_blank') {{violation.documentURI}}
           td {{violation.violatedDirective}}
-          //- td.long {{violation.originalPolicy}}
-          //- td
-          //-   a(href='{{violation.blockedURI}}', target='_blank') {{violation.blockedURI}}
-          //- td {{violation.sourceFile}}
-          //- td {{violation.lineNumber}}
           td {{violation.statusCode}}
-          //- td.long {{violation.userAgent}}
           td
             a(href='{{ "#/detail/" + $index }}') View
+    p
+      span Total Violations&nbsp;
+      span.label.label-info {{violations.length}}
+

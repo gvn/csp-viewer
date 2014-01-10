@@ -3,12 +3,12 @@ html(ng-app='cspViewer')
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     title CSP Violations
-    link(href='/bower_components/bootswatch/cyborg/bootstrap.min.css', rel='stylesheet', type='text/css', media='all')
+    link(href='/bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet', type='text/css', media='all')
     link(href='/app/css/report.css', rel='stylesheet', type='text/css')
   body
-    .container
-      ng-view
+    .container(ng-view)
 
     script(src='/bower_components/angular/angular.js')
     script(src='/bower_components/angular-route/angular-route.js')
+    script(src='/bower_components/angular-resource/angular-resource.js')
     script(src='/app/js/app.js')
